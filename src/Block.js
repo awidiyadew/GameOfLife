@@ -34,4 +34,8 @@ export default class Block {
   bottomBlock() {
     return new Block(this._row + 1, this._column);
   }
+
+  topLeftBlock() {
+    return new Block(this._row - 1, this._column - 1);
+  }
 }
