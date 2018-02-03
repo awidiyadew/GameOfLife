@@ -20,4 +20,20 @@ describe('Block', () => {
       expect(block.equals(undefined)).to.be.false;
     });
   });
+
+  describe('#leftBlock', () => {
+    it('return Block(1, 1) if input is Block(1,2)', () => {
+      const block = new Block(1, 2);
+      const expectedBlock = new Block(1, 1);
+      const actualBlock = block.leftBlock();
+      expect(actualBlock.equals(expectedBlock)).to.be.true;
+    });
+
+    it('return Block(0, 0) if input is Block(0, 1)', () => {
+      const block = new Block(0, 1);
+      const expectedBlock = new Block(0, 0);
+      const actualBlock = block.leftBlock();
+      expect(actualBlock.equals(expectedBlock)).to.be.true;
+    });
+  });
 });
