@@ -22,4 +22,8 @@ export default class Block {
   leftBlock() {
     return new Block(this._row, this._column - 1);
   }
+
+  rightBlock() {
+    return new Block(this._row, this._column + 1);
+  }
 }
