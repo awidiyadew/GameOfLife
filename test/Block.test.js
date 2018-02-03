@@ -132,4 +132,20 @@ describe('Block', () => {
       expect(actualBlock.equals(expectedBlock)).to.be.true;
     });
   });
+
+  describe('#bottomLeftBlock', () => {
+    it('return Block(3, 0) if input is Block(2, 1)', () => {
+      const block = new Block(2, 1);
+      const expectedBlock = new Block(3, 0);
+      const actualBlock = block.bottomLeftBlock();
+      expect(actualBlock.equals(expectedBlock)).to.be.true;
+    });
+
+    it('return Block(1, 0) if input is Block(0, 1)', () => {
+      const block = new Block(0, 1);
+      const expectedBlock = new Block(1, 0);
+      const actualBlock = block.bottomLeftBlock();
+      expect(actualBlock.equals(expectedBlock)).to.be.true;
+    });
+  });
 });
