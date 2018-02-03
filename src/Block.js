@@ -1,3 +1,6 @@
+/**
+ * Represent an area in a grid
+ */
 export default class Block {
   constructor(row, column) {
     this._row = row;
