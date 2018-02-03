@@ -16,10 +16,10 @@ export default class Block {
       return false;
     }
 
-    if (this._column !== otherBlock._column) {
-      return false;
-    }
+    return this._column === otherBlock._column;
+  }
 
-    return true;
-}
+  leftBlock() {
+    return new Block(this._row, this._column - 1);
+  }
 }
