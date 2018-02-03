@@ -36,4 +36,36 @@ describe('Block', () => {
       expect(actualBlock.equals(expectedBlock)).to.be.true;
     });
   });
+
+  describe('#rightBlock', () => {
+    it('return Block(1, 2) if input is Block(1, 1)', () => {
+      const block = new Block(1, 1);
+      const expectedBlock = new Block(1, 2);
+      const actualBlock = block.rightBlock();
+      expect(actualBlock.equals(expectedBlock)).to.be.true;
+    });
+
+    it('return Block(0, 1) if input is Block(0, 0)', () => {
+      const block = new Block(0, 0);
+      const expectedBlock = new Block(0, 1);
+      const actualBlock = block.rightBlock();
+      expect(actualBlock.equals(expectedBlock)).to.be.true;
+    });
+  });
+
+  describe('#rightBlock', () => {
+    it('return Block(1, 2) if input is Block(1, 1)', () => {
+      const block = new Block(1, 1);
+      const expectedBlock = new Block(1, 2);
+      const actualBlock = block.rightBlock();
+      expect(actualBlock.equals(expectedBlock)).to.be.true;
+    });
+
+    it('return Block(0, 1) if input is Block(0, 0)', () => {
+      const block = new Block(0, 0);
+      const expectedBlock = new Block(0, 1);
+      const actualBlock = block.rightBlock();
+      expect(actualBlock.equals(expectedBlock)).to.be.true;
+    });
+  });
 });
