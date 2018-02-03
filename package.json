@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-tdd-template",
+  "version": "1.0.0",
+  "description": "<add-project-description-here>",
+  "scripts": {
+    "test": "NODE_ENV=test mocha --compilers js:babel-core/register test/**/*.test.js",
+    "coverage": "nyc --reporter=text --reporter=lcov npm run test",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "dotenv": "^4.0.0",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "mocha": "^5.0.0",
+    "npm": "^5.6.0",
+    "nyc": "^11.4.1",
+    "sinon": "^4.1.6",
+    "sinon-chai": "^2.14.0"
+  }
+}
