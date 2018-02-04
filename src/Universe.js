@@ -34,6 +34,27 @@ export default class Universe {
   }
 
   tick() {
-    return new Universe();
+    const nextUniverse = new Universe();
+    this._cells.forEach(cell => {
+      const cellNeighbors = cell.findMyNeighbors(this._cells);
+      const aliveNeighbors = cellNeighbors.filter(cell => cell.isAlive());
+      const deadNeighbors = cellNeighbors.filter(cell => !cell.isAlive());
+
+      if (aliveNeighbors.length === 2 || aliveNeighbors.length === 3) {
+        nextUniverse.addCell(cell);
+      }
+
+      deadNeighbors.forEach(deadCell => {
+        const deadCellNeighbors = deadCell.findMyNeighbors(this._cells);
+        const otherAliveNeighbors = deadCellNeighbors.filter(cell => cell.isAlive());
+
+        if (otherAliveNeighbors.length === 3) {
+          const rebornCell = deadCell.reborn();
+          nextUniverse.addCell(rebornCell);
+        }
+      });
+    });
+
+    return nextUniverse;
   }
 }
