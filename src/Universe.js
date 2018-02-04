@@ -18,7 +18,16 @@ export default class Universe {
       return;
     }
 
+    if (this._isCellExist(cell)) {
+      return;
+    }
+
     this._cells.push(cell);
+  }
+
+  _isCellExist(cell) {
+    const duplicateItems = this._cells.filter(item => item.equals(cell));
+    return duplicateItems.length > 0;
   }
 
   getAliveCell() {
