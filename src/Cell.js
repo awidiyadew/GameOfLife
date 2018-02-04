@@ -74,4 +74,12 @@ export default class Cell {
 
     return myNeighbors;
   }
+
+  reborn() {
+    if (!this._isAlive) {
+      return new Cell(this._block, true);
+    }
+
+    throw new Error('Can\'t reborn an alive cell!');
+  }
 }
