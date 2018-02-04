@@ -90,8 +90,7 @@ describe('Universe', () => {
       expect(nextUniverse.getAliveCell().length).to.eq(0);
     });
 
-    // Block Patter - Still Live
-    it('return next universe with Cell(1,1|1,2|2,1|2,2) if input are Cell(1,1|1,2|2,1|2,2)', () => {
+    it('return Block Patter next universe with Cell(1,1|1,2|2,1|2,2) if input are Cell(1,1|1,2|2,1|2,2)', () => {
       const universe = new Universe();
       const cell11 = new Cell(new Block(1, 1));
       const cell12 = new Cell(new Block(1, 2));
@@ -101,6 +100,25 @@ describe('Universe', () => {
       universe.addCell(cell12);
       universe.addCell(cell21);
       universe.addCell(cell22);
+      const prevUniverseCells = universe.getAliveCell();
+
+      const nextUniverse = universe.tick();
+      const nextUniverseCells = nextUniverse.getAliveCell();
+      expect(nextUniverseCells).to.deep.members(prevUniverseCells);
+    });
+
+    it('return Boat Pattern next universe with Cell(0,1|1,0|2,1|0,2|1,2) if input are Cell(0,1|1,0|2,1|0,2|1,2)', () => {
+      const universe = new Universe();
+      const cell01 = new Cell(new Block(0, 1));
+      const cell10 = new Cell(new Block(1, 0));
+      const cell21 = new Cell(new Block(2, 1));
+      const cell02 = new Cell(new Block(0, 2));
+      const cell12 = new Cell(new Block(1, 2));
+      universe.addCell(cell01);
+      universe.addCell(cell10);
+      universe.addCell(cell21);
+      universe.addCell(cell02);
+      universe.addCell(cell12);
       const prevUniverseCells = universe.getAliveCell();
 
       const nextUniverse = universe.tick();
