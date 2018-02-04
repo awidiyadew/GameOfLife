@@ -144,5 +144,33 @@ describe('Universe', () => {
       const actualNextUniverseCells = nextUniverse.getAliveCell();
       expect(actualNextUniverseCells).to.deep.members(expectedCellsResult);
     });
+
+    it('return ToadPattern-Two-Phase-Oscillator next universe with Cell(0,2|1,1|1,4|2,1|2,4|3,3) if input are Cell(1,1|1,2|1,3|2,2|2,3|2,4)', () => {
+      const universe = new Universe();
+      const cell11 = new Cell(new Block(1, 1));
+      const cell12 = new Cell(new Block(1, 2));
+      const cell13 = new Cell(new Block(1, 3));
+      const cell22 = new Cell(new Block(2, 2));
+      const cell23 = new Cell(new Block(2, 3));
+      const cell24 = new Cell(new Block(2, 4));
+      universe.addCell(cell11);
+      universe.addCell(cell12);
+      universe.addCell(cell13);
+      universe.addCell(cell22);
+      universe.addCell(cell23);
+      universe.addCell(cell24);
+
+      const expectedCellsResult = [
+        new Cell(new Block(0, 2)),
+        new Cell(new Block(1, 1)),
+        new Cell(new Block(1, 4)),
+        new Cell(new Block(2, 1)),
+        new Cell(new Block(2, 4)),
+        new Cell(new Block(3, 3))
+      ];
+      const nextUniverse = universe.tick();
+      const actualNextUniverseCells = nextUniverse.getAliveCell();
+      expect(actualNextUniverseCells).to.deep.members(expectedCellsResult);
+    });
   });
 });
