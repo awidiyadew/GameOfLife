@@ -53,6 +53,14 @@ describe('Cell', () => {
     });
   });
 
+  describe('#isDifferentType', () => {
+    it('true if cell instantiated with bad block', () => {
+      const badBlock = new Block('bad', 'oh no!');
+      const badCell = new Cell(badBlock);
+      expect(Cell.isDifferentType(badCell)).to.be.true;
+    });
+  });
+
   describe('#findMyNeighbors', () => {
     it('should not contain Cell{3, 3} if input is Cell{1, 1}', () => {
       const cell11 = new Cell(new Block(1, 1));
