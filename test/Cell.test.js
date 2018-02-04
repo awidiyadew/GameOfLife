@@ -69,5 +69,21 @@ describe('Cell', () => {
       const actualCellNeighbors = targetCell.findMyNeighbors([aUniverseCell]);
       expect(actualCellNeighbors).to.deep.contains.members([aNeighbor]);
     });
+
+    it('should return all neighbor of Cell{1, 1} with isAlive = false', () => {
+      const targetCell = new Cell(new Block(1, 1));
+      const expectedNeighborOfCell11 = [
+        new Cell(new Block(1, 0), false),
+        new Cell(new Block(0, 0), false),
+        new Cell(new Block(0, 1), false),
+        new Cell(new Block(0, 2), false),
+        new Cell(new Block(1, 2), false),
+        new Cell(new Block(2, 2), false),
+        new Cell(new Block(2, 1), false),
+        new Cell(new Block(2, 0), false)
+      ];
+      const actualNeighbors = targetCell.findMyNeighbors([]);
+      expect(actualNeighbors).to.deep.members(expectedNeighborOfCell11);
+    });
   });
 });
