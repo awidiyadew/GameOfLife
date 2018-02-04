@@ -56,8 +56,8 @@ describe('Cell', () => {
   describe('#findMyNeighbors', () => {
     it('should not contain Cell{3, 3} if input is Cell{1, 1}', () => {
       const cell11 = new Cell(new Block(1, 1));
-      const aCellInBoard = new Cell(new Block(0, 0));
-      const actualNeighbors = cell11.findMyNeighbors([aCellInBoard]);
+      const aUniverseCell = new Cell(new Block(10, 10));
+      const actualNeighbors = cell11.findMyNeighbors([aUniverseCell]);
       const notANeighbor = new Cell(new Block(3, 3));
       expect(actualNeighbors).to.deep.not.contains.members([notANeighbor]);
     });
@@ -65,8 +65,8 @@ describe('Cell', () => {
     it('should contain Cell{0, 0} if target cell is Cell{1, 1} and input with some random Cell', () => {
       const targetCell = new Cell(new Block(1, 1));
       const aNeighbor = new Cell(new Block(0, 0));
-      const aCellInBoard = new Cell(new Block(0, 0));
-      const actualCellNeighbors = targetCell.findMyNeighbors([aCellInBoard]);
+      const aUniverseCell = new Cell(new Block(0, 0));
+      const actualCellNeighbors = targetCell.findMyNeighbors([aUniverseCell]);
       expect(actualCellNeighbors).to.deep.contains.members([aNeighbor]);
     });
   });
