@@ -125,5 +125,24 @@ describe('Universe', () => {
       const nextUniverseCells = nextUniverse.getAliveCell();
       expect(nextUniverseCells).to.deep.members(prevUniverseCells);
     });
+
+    it('return BlinkerPattern-Oscillator next universe with Cell(1,1|0,1|2,1) if input are Cell(1,1|1,0|1,2)', () => {
+      const universe = new Universe();
+      const cell11 = new Cell(new Block(1, 1));
+      const cell10 = new Cell(new Block(1, 0));
+      const cell12 = new Cell(new Block(1, 2));
+      universe.addCell(cell11);
+      universe.addCell(cell10);
+      universe.addCell(cell12);
+
+      const expectedCellsResult = [
+        new Cell(new Block(1, 1)),
+        new Cell(new Block(0, 1)),
+        new Cell(new Block(2, 1))
+      ];
+      const nextUniverse = universe.tick();
+      const actualNextUniverseCells = nextUniverse.getAliveCell();
+      expect(actualNextUniverseCells).to.deep.members(expectedCellsResult);
+    });
   });
 });
