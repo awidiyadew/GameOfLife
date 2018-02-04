@@ -45,18 +45,18 @@ export default class Cell {
     ];
   }
 
-  findMyNeighbors(someCells) {
-    const someBlocks = someCells.map((cell) => cell._block);
+  findMyNeighbors(someUniverseCells) {
+    const someUniverseBlocks = someUniverseCells.map((cell) => cell._block);
     const neighborBlocks = this._findNeighborBlock();
 
     let myNeighbors = [];
     neighborBlocks.forEach((neighborBlock) => {
       let isNeighborDead = true;
-      someBlocks.forEach((liveBlock, index) => {
+      someUniverseBlocks.forEach((liveBlock, index) => {
         const isNeighbor = liveBlock.equals(neighborBlock);
         if (isNeighbor) {
           isNeighborDead = false;
-          myNeighbors.push(someCells[index]);
+          myNeighbors.push(someUniverseCells[index]);
         }
       });
 
