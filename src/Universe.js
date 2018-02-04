@@ -1,7 +1,7 @@
 import Cell from './Cell';
 
 /**
- * Represent a place where Cell lives
+ * Represent a place where Cells life
  */
 export default class Universe {
   constructor() {

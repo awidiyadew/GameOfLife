@@ -94,4 +94,19 @@ describe('Cell', () => {
       expect(actualNeighbors).to.deep.contains.members(expectedNeighborOfCell11);
     });
   });
+
+  describe('#reborn', () => {
+    it('return a new alive cell from a dead cell', () => {
+      const deadCell = new Cell(new Block(0, 0), false);
+      const expectedResult = new Cell(new Block(0, 0), true);
+      const actualRebornCell = deadCell.reborn();
+      expect(actualRebornCell.equals(expectedResult)).to.be.true;
+    });
+
+    it('should return error when trying to reborn an alive cell', () => {
+      const aliveCell = new Cell(new Block(0, 0), true);
+      const actualRebornCell = () => aliveCell.reborn();
+      expect(actualRebornCell).to.be.throw();
+    });
+  });
 });
