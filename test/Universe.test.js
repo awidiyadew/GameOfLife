@@ -53,5 +53,17 @@ describe('Universe', () => {
       const cellInUniverse = universe.getAliveCell();
       expect(cellInUniverse.length).to.eq(0);
     });
+
+    it('should not addCell if cell already exist', () => {
+      const cell = new Cell(new Block(0, 0));
+      const aDuplicateCell = new Cell(new Block(0, 0));
+      const otherDuplicateCell = new Cell(new Block(0, 0));
+      const universe = new Universe();
+      universe.addCell(cell);
+      universe.addCell(aDuplicateCell);
+      universe.addCell(otherDuplicateCell);
+      const cellInUniverse = universe.getAliveCell();
+      expect(cellInUniverse.length).to.eq(1);
+    });
   });
 });
