@@ -89,5 +89,23 @@ describe('Universe', () => {
       const nextUniverse = universe.tick();
       expect(nextUniverse.getAliveCell().length).to.eq(0);
     });
+
+    // Block Patter - Still Live
+    it('return next universe with Cell(1,1|1,2|2,1|2,2) if input are Cell(1,1|1,2|2,1|2,2)', () => {
+      const universe = new Universe();
+      const cell11 = new Cell(new Block(1, 1));
+      const cell12 = new Cell(new Block(1, 2));
+      const cell21 = new Cell(new Block(2, 1));
+      const cell22 = new Cell(new Block(2, 2));
+      universe.addCell(cell11);
+      universe.addCell(cell12);
+      universe.addCell(cell21);
+      universe.addCell(cell22);
+      const prevUniverseCells = universe.getAliveCell();
+
+      const nextUniverse = universe.tick();
+      const nextUniverseCells = nextUniverse.getAliveCell();
+      expect(nextUniverseCells).to.deep.members(prevUniverseCells);
+    });
   });
 });
