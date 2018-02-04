@@ -12,11 +12,19 @@ export default class Block {
       return false;
     }
 
+    if (Block.isDifferentType(otherBlock)) {
+      return false;
+    }
+
     if (this._row !== otherBlock._row) {
       return false;
     }
 
     return this._column === otherBlock._column;
+  }
+
+  static isDifferentType(otherBlock) {
+    return !otherBlock || typeof otherBlock._row !== 'number' || typeof otherBlock._column !== 'number';
   }
 
   leftBlock() {

@@ -1,6 +1,8 @@
 /**
  * Represent a living things in a universe
  */
+import Block from "./Block";
+
 export default class Cell {
   constructor(block, isAlive = true) {
     this._block = block;
@@ -16,7 +18,7 @@ export default class Cell {
       return false;
     }
 
-    if (this._isDifferentType(otherCell)) {
+    if (Cell._isDifferentType(otherCell)) {
       return false;
     }
 
@@ -27,7 +29,7 @@ export default class Cell {
     return this._isAlive === otherCell._isAlive;
   }
 
-  _isDifferentType(otherCell) {
+  static _isDifferentType(otherCell) {
     const someBlock = otherCell._block;
     return (!someBlock || otherCell._isAlive === undefined || otherCell._isAlive === null);
   }
