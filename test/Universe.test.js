@@ -37,5 +37,12 @@ describe('Universe', () => {
       const cellInUniverse = universe.getAliveCell();
       expect(cellInUniverse.length).to.eq(0);
     });
+
+    it('should not addCell if input is are not Cell object', () => {
+      const universe = new Universe();
+      universe.addCell('something');
+      const cellInUniverse = universe.getAliveCell();
+      expect(cellInUniverse.length).to.eq(0);
+    });
   });
 });

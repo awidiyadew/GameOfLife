@@ -1,3 +1,5 @@
+import Cell from './Cell';
+
 /**
  * Represent a place where Cell lives
  */
@@ -8,6 +10,10 @@ export default class Universe {
 
   addCell(cell) {
     if (!cell) {
+      return;
+    }
+
+    if (Cell._isDifferentType(cell)) {
       return;
     }
 
