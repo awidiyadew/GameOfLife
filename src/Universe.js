@@ -7,6 +7,10 @@ export default class Universe {
   }
 
   addCell(cell) {
+    if (!cell) {
+      return;
+    }
+
     this._cells.push(cell);
   }
 
