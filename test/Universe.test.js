@@ -81,5 +81,13 @@ describe('Universe', () => {
       const nextUniverse = universe.tick();
       expect(universe.getAliveCell()).not.to.deep.members(nextUniverse.getAliveCell());
     });
+
+    it('return 0 alive cell in next universe when Cell{0, 0} added to current universe', () => {
+      const universe = new Universe();
+      const cell00 = new Cell(new Block(0, 0));
+      universe.addCell(cell00);
+      const nextUniverse = universe.tick();
+      expect(nextUniverse.getAliveCell().length).to.eq(0);
+    });
   });
 });
