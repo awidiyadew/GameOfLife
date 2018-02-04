@@ -1,5 +1,4 @@
 import Cell from './Cell';
-import Block from "./Block";
 
 /**
  * Represent a place where Cell lives
@@ -32,5 +31,9 @@ export default class Universe {
 
   getAliveCell() {
     return this._cells;
+  }
+
+  tick() {
+    return new Universe();
   }
 }

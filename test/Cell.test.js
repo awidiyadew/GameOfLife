@@ -91,7 +91,7 @@ describe('Cell', () => {
         new Cell(new Block(2, 0), false)
       ];
       const actualNeighbors = targetCell.findMyNeighbors([]);
-      expect(actualNeighbors).to.deep.members(expectedNeighborOfCell11);
+      expect(actualNeighbors).to.deep.contains.members(expectedNeighborOfCell11);
     });
   });
 });

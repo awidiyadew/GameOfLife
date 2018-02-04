@@ -66,4 +66,20 @@ describe('Universe', () => {
       expect(cellInUniverse.length).to.eq(1);
     });
   });
+
+  describe('#tick', () => {
+    it('return same universe when no cell in universe', () => {
+      const universe = new Universe();
+      const nextUniverse = universe.tick();
+      expect(universe).to.deep.include(nextUniverse);
+    });
+
+    it('return different next universe when Cell{0, 0} added to current universe', () => {
+      const universe = new Universe();
+      const cell00 = new Cell(new Block(0, 0));
+      universe.addCell(cell00);
+      const nextUniverse = universe.tick();
+      expect(universe.getAliveCell()).not.to.deep.members(nextUniverse.getAliveCell());
+    });
+  });
 });
