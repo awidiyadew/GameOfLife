@@ -38,9 +38,18 @@ describe('Universe', () => {
       expect(cellInUniverse.length).to.eq(0);
     });
 
-    it('should not addCell if input is are not Cell object', () => {
+    it('should not addCell if input is string', () => {
       const universe = new Universe();
       universe.addCell('something');
+      const cellInUniverse = universe.getAliveCell();
+      expect(cellInUniverse.length).to.eq(0);
+    });
+
+    it('should not addCell if input is not valid Cell', () => {
+      const universe = new Universe();
+      const badBlock = new Block('bad', 'oh no!');
+      const badCell = new Cell(badBlock);
+      universe.addCell(badCell);
       const cellInUniverse = universe.getAliveCell();
       expect(cellInUniverse.length).to.eq(0);
     });

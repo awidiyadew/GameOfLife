@@ -18,7 +18,7 @@ export default class Cell {
       return false;
     }
 
-    if (Cell._isDifferentType(otherCell)) {
+    if (Cell.isDifferentType(otherCell)) {
       return false;
     }
 
@@ -29,9 +29,13 @@ export default class Cell {
     return this._isAlive === otherCell._isAlive;
   }
 
-  static _isDifferentType(otherCell) {
+  static isDifferentType(otherCell) {
     const someBlock = otherCell._block;
-    return (!someBlock || otherCell._isAlive === undefined || otherCell._isAlive === null);
+    if (!someBlock || typeof otherCell._isAlive !== 'boolean') {
+      return true;
+    }
+
+    return !!Block.isDifferentType(someBlock);
   }
 
   _findNeighborBlock() {
