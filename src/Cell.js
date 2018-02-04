@@ -61,7 +61,7 @@ export default class Cell {
       });
 
       if (isNeighborDead) {
-        const deadNeighbor = new Cell(neighborBlock._row, neighborBlock._column, false);
+        const deadNeighbor = new Cell(neighborBlock, false);
         myNeighbors.push(deadNeighbor);
       }
     });
