@@ -1,5 +1,5 @@
 # [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) &middot; [![Build Status](https://travis-ci.org/awidiyadew/GameOfLive.svg?branch=master)](https://travis-ci.org/awidiyadew/GameOfLive)
-
+![Game Of Life](gol.png?raw=true "Game Of Life")
 The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of which is in one
 of two possible states, live or dead. Every cell interacts with its eight neighbours, which are the cells that are
 directly horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:
