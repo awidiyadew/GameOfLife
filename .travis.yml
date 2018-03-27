@@ -7,4 +7,4 @@ branches:
   only:
     - master
 
-after_success: nyc --reporter=text --reporter=lcov npm run test | coveralls
+after_success: npm run coverage | coveralls
