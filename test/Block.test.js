@@ -19,6 +19,12 @@ describe('Block', () => {
       const block = new Block(0, 0);
       expect(block.equals(undefined)).to.be.false;
     });
+
+    it('false if other block is different type', () => {
+      const block = new Block(0, 0);
+      const otherBlock = 'otherThing';
+      expect(block.equals(otherBlock)).to.be.false;
+    });
   });
 
   describe('#leftBlock', () => {
