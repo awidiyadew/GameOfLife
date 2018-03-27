@@ -6,7 +6,8 @@
     "test": "NODE_ENV=test mocha --compilers js:babel-core/register test/**/*.test.js",
     "coverage": "nyc --reporter=text --reporter=lcov npm run test",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "license": "ISC",
   "dependencies": {
